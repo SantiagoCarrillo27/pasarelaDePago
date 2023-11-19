@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+</head>
+
+<body>
+
+
+    <button id="ckeckout">Pay</button>
+
+
+    <script>
+        const checkout = document.getElementById('ckeckout');
+        checkout.addEventListener('click', async () => {
+
+            const response = await fetch('/create-order', {
+                method: 'POST'
+            })
+
+            const data = await response.json();
+            window.location.href = data.init_point;
+
+            console.log(data);
+        })
+
+
+
+    </script>
+</body>
+
+</html>
